@@ -10,13 +10,7 @@ apt-get update
 apt-get upgrade -y
 
 echo "  Essencial softwares..."
-apt install -y --force-yes build-essential curl git rar zip unzip vim tilix vlc ffmpeg ffmpegthumbnailer neofetch libobs-dev
-
-echo "  Ubuntu restrict extras..."
-apt install -y --force-yes ubuntu-restricted-extras
-
-echo "Installing snap..."
-apt install -y --force-yes snapd
+apt install -y --force-yes build-essential curl git rar zip unzip vim tilix postgresql-client-13 ffmpeg ffmpegthumbnailer neofetch libobs-dev
 
 echo "Installing Vscode..."
 snap install -y --force-yes --classic code
@@ -104,15 +98,3 @@ apt install -y --force-yes fonts-hack-ttf fonts-powerline
 echo "Installing dotfiles..."
 curl -Lo install.sh https://raw.githubusercontent.com/paulocastellano/dotfiles/master/install.sh
 sh install.sh
-
-echo "Installing google chrome"
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-gdebi google-chrome-stable_current_amd64.deb
-
-echo "Installing spotify..."
-curl -sS https://download.spotify.com/debian/pubkey.gpg | apt-key add -
-echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
-apt-get update && apt-get install -y --force-yes spotify-client
-
-echo "Installing Obstudio..."
-apt-get install -y --force-yes obs-studio
